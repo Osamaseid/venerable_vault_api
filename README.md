@@ -179,16 +179,16 @@ pytest tests/
 
 Once running, visit:
 
-- **Swagger UI**: http://127.0.0.1:8000/docs
-- **ReDoc**: http://127.0.0.1:8000/redoc
-- **OpenAPI Schema**: http://127.0.0.1:8000/openapi.json
+- **Swagger UI**: http://127.0.0.1:3000/docs
+- **ReDoc**: http://127.0.0.1:3000/redoc
+- **OpenAPI Schema**: http://127.0.0.1:3000/openapi.json
 
 ## Example Usage
 
 ### Create an Item
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/items/ \
+curl -X POST http://127.0.0.1:3000/api/items/ \
   -H "Content-Type: application/json" \
   -d '{
     "name": "18th Century Writing Desk",
@@ -201,7 +201,7 @@ curl -X POST http://127.0.0.1:8000/api/items/ \
 ### Add Provenance Event
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/items/1/provenance/ \
+curl -X POST http://127.0.0.1:3000/api/items/1/provenance/ \
   -H "Content-Type: application/json" \
   -d '{
     "description": "Refinished mahogany surface",
@@ -214,7 +214,7 @@ curl -X POST http://127.0.0.1:8000/api/items/1/provenance/ \
 ### Get Valuation
 
 ```bash
-curl http://127.0.0.1:8000/api/items/1/valuation/
+curl http://127.0.0.1:3000/api/items/1/valuation/
 ```
 
 Response:
