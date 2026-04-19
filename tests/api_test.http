@@ -1,0 +1,52 @@
+### Create Item
+POST http://127.0.0.1:3000/api/items/
+Content-Type: application/json
+
+{
+  "name": "18th Century Writing Desk",
+  "base_cost": 5000,
+  "age_category": "antique",
+  "documents_count": 0
+}
+
+### Add Provenance Event 1
+POST http://127.0.0.1:3000/api/items/1/provenance/
+Content-Type: application/json
+
+{
+  "description": "Refinished mahogany surface",
+  "year": 1995,
+  "event_type": "restoration",
+  "documented": true
+}
+
+### Add Provenance Event 2
+POST http://127.0.0.1:3000/api/items/1/provenance/
+Content-Type: application/json
+
+{
+  "description": "Replaced brass hardware",
+  "year": 2005,
+  "event_type": "restoration",
+  "documented": true
+}
+
+### Add Provenance Event 3
+POST http://127.0.0.1:3000/api/items/1/provenance/
+Content-Type: application/json
+
+{
+  "description": "Professional appraisal and authentication",
+  "year": 2023,
+  "event_type": "appraisal",
+  "documented": true
+}
+
+### Get Item with Provenance
+GET http://127.0.0.1:3000/api/items/1
+
+### Get Valuation
+GET http://127.0.0.1:3000/api/items/1/valuation/
+
+### List all Items
+GET http://127.0.0.1:3000/api/items/
