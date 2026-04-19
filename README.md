@@ -5,6 +5,7 @@ A FastAPI-based REST API for managing antique items, tracking provenance history
 ## Overview
 
 The Venerable Vault API provides a complete system for antique dealers, collectors, and appraisers to:
+
 - Catalog antique items with detailed attributes
 - Track provenance (ownership history, restorations, appraisals)
 - Calculate automated valuations based on age, condition, and documentation
@@ -23,8 +24,8 @@ The Venerable Vault API provides a complete system for antique dealers, collecto
      │  Routes Layer  │ │  CRUD    │ │  Valuation     │
      │ items.py:1     │ │ crud.py  │ │ valuation.py   │
      └────────────────┘ └──────────┘ └────────────────┘
-              │               │               
-              ▼               ▼               
+              │               │
+              ▼               ▼
      ┌────────────────────────────────────────┐
      │            Models Layer                │
      │         (app/models.py:1)              │
@@ -85,26 +86,26 @@ The Venerable Vault API provides a complete system for antique dealers, collecto
 
 ### Items
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/items/` | Create a new item |
-| `GET` | `/api/items/` | List all items |
-| `GET` | `/api/items/{id}` | Get item by ID with provenance |
-| `DELETE` | `/api/items/{id}` | Delete an item |
+| Method   | Endpoint          | Description                    |
+| -------- | ----------------- | ------------------------------ |
+| `POST`   | `/api/items/`     | Create a new item              |
+| `GET`    | `/api/items/`     | List all items                 |
+| `GET`    | `/api/items/{id}` | Get item by ID with provenance |
+| `DELETE` | `/api/items/{id}` | Delete an item                 |
 
 ### Provenance
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `POST` | `/api/items/{id}/provenance/` | Add provenance event |
-| `GET` | `/api/items/{id}/provenance/` | Get all provenance events |
+| Method | Endpoint                      | Description               |
+| ------ | ----------------------------- | ------------------------- |
+| `POST` | `/api/items/{id}/provenance/` | Add provenance event      |
+| `GET`  | `/api/items/{id}/provenance/` | Get all provenance events |
 
 ### Valuation
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/items/{id}/valuation/` | Get current valuation |
-| `GET` | `/api/items/{id}/valuations/` | Get valuation history |
+| Method | Endpoint                      | Description           |
+| ------ | ----------------------------- | --------------------- |
+| `GET`  | `/api/items/{id}/valuation/`  | Get current valuation |
+| `GET`  | `/api/items/{id}/valuations/` | Get valuation history |
 
 ## Valuation Logic
 
@@ -130,6 +131,7 @@ base_value × age_multiplier × documentation_bonus
 | 1-2 | +0.1 |
 
 **Example:**
+
 - Base cost: $5000
 - Age: antique (+1.5) → multiplier = 2.5
 - 3 provenance events (+0.3) → multiplier = 2.8
@@ -138,6 +140,7 @@ base_value × age_multiplier × documentation_bonus
 ## Setup & Installation
 
 ### Prerequisites
+
 - Python 3.11+
 - SQLite
 
@@ -175,6 +178,7 @@ pytest tests/
 ## API Documentation
 
 Once running, visit:
+
 - **Swagger UI**: http://127.0.0.1:8000/docs
 - **ReDoc**: http://127.0.0.1:8000/redoc
 - **OpenAPI Schema**: http://127.0.0.1:8000/openapi.json
@@ -182,6 +186,7 @@ Once running, visit:
 ## Example Usage
 
 ### Create an Item
+
 ```bash
 curl -X POST http://127.0.0.1:8000/api/items/ \
   -H "Content-Type: application/json" \
@@ -194,6 +199,7 @@ curl -X POST http://127.0.0.1:8000/api/items/ \
 ```
 
 ### Add Provenance Event
+
 ```bash
 curl -X POST http://127.0.0.1:8000/api/items/1/provenance/ \
   -H "Content-Type: application/json" \
@@ -206,11 +212,13 @@ curl -X POST http://127.0.0.1:8000/api/items/1/provenance/ \
 ```
 
 ### Get Valuation
+
 ```bash
 curl http://127.0.0.1:8000/api/items/1/valuation/
 ```
 
 Response:
+
 ```json
 {
   "item_id": 1,
@@ -262,5 +270,4 @@ venerable_vault_api/
 
 ## License
 
-MIT#   v e n e r a b l e _ v a u l t _ a p i  
- 
+MIT
